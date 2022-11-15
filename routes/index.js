@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/",  (req , res) => { 
 
-    res.render("../views/index.ejs", {hello: "Hi Steven"})
+    res.render("../views/index.ejs", {title: "Home"})
 })
 
 

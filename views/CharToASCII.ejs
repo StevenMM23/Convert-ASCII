@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("./partials/head.ejs") %>
+  
+<%- include("./partials/head.ejs") %>
   
   <body>
-    <%- include("./partials/nav.ejs") %>
+<%- include("./partials/nav.ejs") %>
+    
 
     <div class="container">
-      <form action="/CharToASCII/Result" method="get">
+      <form action="/CharToASCII/Result" method="post">
         <fieldset>
           <legend>You can convert your character here!</legend>
           <div class="mb-3">
@@ -15,7 +17,7 @@
               type="text"
               class="form-control"
               name="CharValue"
-              
+              value="<%= previewValue  %>"
             />
           </div>
           <div class="mb-3">
@@ -26,7 +28,7 @@
               type="text"
               id="disabledTextInput"
               class="form-control"
-              
+              value="<%= ascii %>"
             />
           </div>
           <button type="submit" class="btn btn-primary">Convert</button>

@@ -19,8 +19,10 @@ app.set("view engine", "ejs");
 
 
 //Routes
+app.use(express.static(path.join(__dirname, "public")))
 app.use(indexRoute);
 app.use(ASCIIRoute);
+
 //Server
 
 app.listen(app.get("port"), () =>  {

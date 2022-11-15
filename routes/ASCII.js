@@ -7,16 +7,16 @@ const obtainASCII = (a) => {
 }
 
 
-router.get("/views/CharToASCII.ejs", (req, res) => {
-  res.render("../views/CharToASCII.ejs");
+router.get("/abc", (req, res) => {
+  res.render("../views/CharToASCII.ejs", {previewValue : "", ascii : "", title: "Character to ASCII"});
 });
 
-router.post("/views/", (req, res) => {
+router.post("/CharToASCII/Result", (req, res) => {
   
   const CharacterValue = req.body.CharValue
   const ascii = obtainASCII(CharacterValue)
 
-  res.render("../views/CharToASCII.ejs", { previewValue: CharacterValue,  ascii});
+  res.render("../views/CharToASCII.ejs", { previewValue: CharacterValue,  ascii, title: "Character to ASCII"});
 });
 
 module.exports = router;
