@@ -1,0 +1,29 @@
+const express = require("express");
+const path = require("path")
+
+
+
+//Require Routes
+const indexRoute = require("./routes/index")
+const ASCIIRoute = require("./routes/ASCII");
+
+
+
+//Initializations
+const app = express();
+app.use(express.urlencoded({extended: false}))
+
+//Settings 
+app.set("port", process.env.PORT || 3000);
+app.set("view engine", "ejs");
+
+
+//Routes
+app.use(indexRoute);
+app.use(ASCIIRoute);
+//Server
+
+app.listen(app.get("port"), () =>  {
+    console.log(`The app is listening on port ${app.get("port")}`)
+})
+
