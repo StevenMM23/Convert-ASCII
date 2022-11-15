@@ -6,7 +6,7 @@ const path = require("path")
 //Require Routes
 const indexRoute = require("./routes/index")
 const ASCIIRoute = require("./routes/ASCII");
-
+const BinaryRoute = require("./routes/Binary")
 
 
 //Initializations
@@ -18,10 +18,19 @@ app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 
 
+
 //Routes
 app.use(express.static(path.join(__dirname, "public")))
 app.use(indexRoute);
 app.use(ASCIIRoute);
+app.use(BinaryRoute);
+
+
+//Middlewares
+app.use(express.json(), (req, res, next) => { 
+    next();
+})
+
 
 //Server
 
