@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-<%- include("./partials/head.ejs") %>
-  
+  <%- include("./partials/head.ejs") %>
+
   <body>
-<%- include("./partials/nav.ejs") %>
-    
+    <%- include("./partials/nav.ejs") %>
 
     <div class="container">
       <form action="/ASCIIChar/Result" method="post">
@@ -14,7 +12,8 @@
           <div class="mb-3">
             <label class="form-label">Introduce the ASCII Value</label>
             <input
-              type="text"
+              autofocus
+              type="number"
               class="form-control"
               name="AsciiValue"
               value="<%= previewValue  %>"
