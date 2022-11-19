@@ -20,11 +20,14 @@ app.set("view engine", "ejs");
 
 
 //Routes
-app.use(express.static(path.join(__dirname, "public")))
+
 app.use(indexRoute);
 app.use(ASCIIRoute);
 app.use(BinaryRoute);
 
+//Static Files 
+app.use(express.static(path.join(__dirname, "public")))
+app.use(express.static(path.join(__dirname, "css")))
 
 //Middlewares
 app.use(express.json(), (req, res, next) => { 
